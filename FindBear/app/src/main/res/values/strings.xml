@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Find Bear</string>
+    <string name="brands">No Bear Selected</string>
+    <string-array name="spiner">
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+</resources>
