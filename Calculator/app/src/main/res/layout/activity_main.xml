@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/purple_500"
+    android:layout_gravity="bottom"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+        <include
+            layout="@layout/texts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/purple_500">
+
+            <Button
+                android:id="@+id/buttH"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_gravity="left"
+                android:background="@color/green"
+                android:text="="
+                android:textColor="@color/red"
+                android:textSize="45dp" />
+
+            <Button
+                android:id="@+id/back"
+                android:layout_width="263dp"
+                android:layout_height="100dp"
+                android:layout_gravity="right"
+                android:background="@color/purple_200"
+                android:text="⌫"
+                android:textColor="@color/red"
+                android:textSize="35dp" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:gravity="bottom"
+            android:background="@color/purple_500"
+            android:layout_height="wrap_content">
+
+            <include
+                layout="@layout/bottons"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+
+
+</LinearLayout>
