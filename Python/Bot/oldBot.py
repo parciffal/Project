@@ -1,4 +1,4 @@
-import types
+"""import types
 from telebot import telebot
 
 bot = telebot.TeleBot("1331725231:AAFeXIFblqd6pE-Fdfbr3V0v3NPwSzuaCQA")
@@ -100,4 +100,5 @@ def inline(call):
                  info = message.text
                  bot.send_message(non,info)
 
-bot.polling(none_stop=True)
+
+"""
