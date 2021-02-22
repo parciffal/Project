@@ -17,6 +17,9 @@ class Model{
        }
            
     }
+    public void answerNotFound(String question){
+        
+    }
     public static Object getKeyFromValue(Map hm, Object value) {
             for (Object o : hm.keySet()) {
               if (hm.get(o).equals(value)) {

@@ -7,7 +7,8 @@ from config import *
 bot = telebot.TeleBot(token=TOKEN)
 dataconnector = database.DataConnector()
 
-@bot.callback_query_handler(func=lambda call: call.data in ['yesone', 'yestwo','yesthree', 'yesfour', 'yesfive'])
+
+@bot.callback_query_handler(func=lambda call: call.data in ['yesone', 'yestwo', 'yesthree', 'yesfour', 'yesfive'])
 def callback_inlinem(call):
     try:
         if call.message:
@@ -80,7 +81,7 @@ def callback_inlinem(call):
         print(repr(e))
 
 
-@bot.callback_query_handler(func=lambda call: call.data in ['noone', 'notwo','nothree', 'nofour'])
+@bot.callback_query_handler(func=lambda call: call.data in ['noone', 'notwo', 'nothree', 'nofour'])
 def callback_inlinem(call):
     try:
         if call.message:
@@ -191,6 +192,7 @@ def callback_inlinem(call):
     except Exception as e:
         print(repr(e))
 
+
 @bot.callback_query_handler(func=lambda call: call.data in ['yes', 'no'])
 def callback_inline(call):
     try:
@@ -227,21 +229,15 @@ def callback_inline(call):
 @bot.message_handler(commands=['subscribe'])
 def subscribe(message):
     id = message.from_user.id
-    if dataconnector.id_cheaker(id) == False:
-        dataconnector.make_userActive(id)
-        bot.send_message(message.chat.id, 'You succesfully Subscribed')
-    else:
-        bot.send_message(message.chat.id, 'You already Subscribed')
+    dataconnector.make_userActive(id)
+    bot.send_message(message.chat.id, 'You succesfully Subscribed')
 
 
 @bot.message_handler(commands=['unsubscribe'])
 def unsubscribe(message):
     id = message.from_user.id
-    if dataconnector.id_cheaker(id) == True:
-        dataconnector.make_userNotActive(id)
-        bot.send_message(message.chat.id, "You sudenly Unsubscribed")
-    else:
-        bot.send_message(message.chat.id, 'You are not Subscribed')
+    dataconnector.make_userNotActive(id)
+    bot.send_message(message.chat.id, "You sudenly Unsubscribed")
 
 
 @bot.message_handler(commands=['start'])
