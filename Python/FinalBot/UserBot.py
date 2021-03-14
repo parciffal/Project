@@ -25,10 +25,12 @@ def therdstep(message):
     msg = bot.send_message(message.chat.id, 'Nombre de su patrocinador de Herbalife:')
     bot.register_next_step_handler(msg, laststep)
 
+
 def secondstep(message):
     user_data['surname'] = message.text
     msg = bot.send_message(message.chat.id, 'Ingrese su identificacion de Herbalife')
     bot.register_next_step_handler(msg, therdstep)
+
 
 @bot.callback_query_handler(func=lambda call: call.data in ['one1', 'one2', 'one3', 'one4', 'one5'])
 def callback_inlinemone(call):
