@@ -41,7 +41,7 @@ class DataConnector:
         return is_user
 
     def remove(self, user_id):
-        lines = list()
+        lines = []
         with open(self.filename, 'r') as file:
             reader = csv.DictReader(file)
             for row in reader:
@@ -105,13 +105,16 @@ class DataConnector:
             file.close()
 
     def get_users_rows(self):
-        lines = list()
+        lines = ''
         with open(self.filename, 'r') as file:
-            reader = csv.DickReader(file)
+            reader = csv.DictReader(file)
             columns = ['name', 'id', 'status']
-            lines.append(columns)
+            for call in columns:
+                lines += call + '  |  '
+            lines += '\n'
             for row in reader:
-                dict = {'name': row['name'], 'id': row['id'], 'status': row['status']}
-                lines.append(dict)
+                lines += row['name'] + ' | ' + row['id'] + ' | ' + row['status'] + '\n'
+
             file.close()
         return lines
+
