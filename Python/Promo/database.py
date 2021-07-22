@@ -4,7 +4,15 @@ import config
 
 class DataConnector:
     filename = config.FILENAME
-    headers = ['message_id','sended_id', 'name', 'promo', 'expire', 'terms', 'limit', 'time', 'code']
+    headers = ['message_id',
+               'sended_id',
+               'name',
+               'promo',
+               'expire',
+               'terms',
+               'limit',
+               'time',
+               'code']
 
     def write_headers(self):
         with open(self.filename, 'a', newline='') as file:
@@ -25,6 +33,15 @@ class DataConnector:
                     'code': code}
             writer.writerow(user)
 
+    def get_ids(self):
+        with open(self.filename, "r", newline="") as file:
+            reader = csv.DictReader(file)
+            userlist = []
+            for row in reader:
+                userlist.append(row['message_id'])
+            file.close()
+            return userlist
+
     def get_all_ids(self):
         with open(self.filename, "r", newline="") as file:
             reader = csv.DictReader(file)
@@ -36,7 +53,7 @@ class DataConnector:
                                     'promo': row['promo'],
                                     'expire': row['expire'],
                                     'terms': row['terms'],
-                                    'limit': int(row['limit']),
+                                    'limit': row['limit'],
                                     'time': row['time'],
                                     'code': row['code']
                                 })

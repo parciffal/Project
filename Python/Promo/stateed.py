@@ -10,3 +10,25 @@ class Adding(StatesGroup):
     S5 = State()
     S6 = State()
     S7 = State()
+
+
+class Delete(StatesGroup):
+    S0 = State()
+    S1 = State()
+    S2 = State()
+    S3 = State()
+    S4 = State()
+    S5 = State()
+    S6 = State()
+    S7 = State()
+
+
+class Edit(StatesGroup):
+    S0 = State()
+    S1 = State()
+    S2 = State()
+    S3 = State()
+    S4 = State()
+    S5 = State()
+    S6 = State()
+    S7 = State()
